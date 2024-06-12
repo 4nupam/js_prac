@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    main {
+      height: 100vh;
+      background-color: antiquewhite;
+      display: grid;
+      place-items: center;
+    }
+  </style>
+  <body>
+    <main>
+      <button class="neg">-</button>
+      <h5 >Counter <span class="counter"></span></h5>
+      <button class="pos">+</button>
+    </main>
+
+    <script>
+      var pos = document.querySelector(".pos");
+      var neg = document.querySelector(".neg");
+      var count = document.querySelector(".counter");
+      var counter = 0;
+
+      function increase() {
+        counter++
+        count.innerHTML = counter
+      }
+      
+      function dec() {
+        if(counter>0){
+            counter--
+            count.innerHTML = counter
+        }
+      }
+
+      pos.addEventListener("click", increase);
+      neg.addEventListener("click", dec);
+    </script>
+  </body>
+</html>

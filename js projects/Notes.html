@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <main>
+      <h5>MY NOTES</h5>
+      <textarea name="" id="input"></textarea>
+      <button class="Add">Add</button>
+      <div id="local">your notes are here</div>
+    </main>
+
+    <script>
+      var input = document.querySelector("#input");
+      var txtarea = document.querySelector("#input");
+      var btn = document.querySelector(".Add");
+      var local = document.querySelector("#local");
+
+      function addtoLocalstorage() {
+        var input_value = input.value.trim();
+        if (input.value == "") {
+          alert("please provide value");
+        } else {
+          localStorage.setItem("notes", input_value);
+          input.value = "";
+        }
+      }
+
+      function displayNotes() {
+        var b = localStorage.getItem("notes");
+        var newEle = document.createElement("ul");
+        newEle.innerHTML = `your notes ${b} <p>X</p>`;
+        local.appendChild(newEle);
+        newEle.querySelector("p").addEventListener("click", function () {
+          newEle.remove();
+        });
+      }
+
+      function handleClick() {
+        addtoLocalstorage();
+        displayNotes();
+      }
+      btn.addEventListener("click", handleClick);
+    </script>
+  </body>
+</html>

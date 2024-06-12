@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <main>
+      <input type="text" class="input" />
+      <button class="btn">+</button>
+    </main>
+    <div class="text">
+
+    </div>
+
+    <script>
+      var input = document.querySelector('.input')
+      var btn = document.querySelector('.btn')
+      var txt = document.querySelector('.text')
+   
+      function abc(){
+        var input_value = input.value.trim()
+        if(input_value === "")
+        {
+          alert("provide proper")
+        }
+        else{
+          var newElement = document.createElement('ul');
+          newElement.innerHTML = `${input_value} <p>X</p> <h5>Edit</h5>`;
+          txt.appendChild(newElement)
+          input.value = ''
+          newElement.querySelector('p').addEventListener('click',function(){
+            newElement.remove();
+          })
+          newElement.querySelector('h5').addEventListener('click',function(){
+           var edit =  prompt("edit your task")
+           newElement.innerHTML  = `${edit} <h5>Edited</h5>`
+          })
+        }
+      }
+
+
+      btn.addEventListener('click', abc);
+    </script>
+  </body>
+</html>

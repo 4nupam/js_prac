@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .dark-theme {
+        background-color: black;
+        color: #fff;
+      }
+      .light-theme {
+        background-color: #fff;
+        color: #000;
+      }
+    </style>
+  </head>
+  <body class="light-theme" style="height: 100vh">
+    <button class="toggle">toggle</button>
+    <h2>Toggle Project</h2>
+
+    <script>
+      var tgle = document.querySelector(".toggle");
+      var body = document.body;
+
+      function toggle(){
+        if(body.classList.contains('light-theme')){
+            body.classList.remove('light-theme')
+            body.classList.add('dark-theme')
+        }
+        else{
+            body.classList.remove('dark-theme')
+            body.classList.add('light-theme')
+        }
+      }
+      tgle.addEventListener("click", toggle);
+    </script>
+  </body>
+</html>

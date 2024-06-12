@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pokémon Fetcher</title>
+  </head>
+  <body>
+    <input type="text" id="search" placeholder="Enter Pokémon name or ID" />
+    <button class="btn">Search</button>
+    <div>
+      <h2 class="name"></h2>
+      <img class="img" alt="Pokémon Image" />
+    </div>
+
+    <script>
+      var btn = document.querySelector(".btn");
+      var nameElement = document.querySelector(".name");
+      var imgElement = document.querySelector(".img");
+
+      async function fetchapi(url) {
+        const res = await fetch(url);
+        if (!res.ok) {
+          throw "Error";
+        }
+        try {
+          let ans = await res.json();
+          console.log(ans);
+          nameElement.innerHTML = ans.name;
+          imgElement.src = ans.sprites.front_default;
+          imgElement.alt = ans.name;
+        } catch (error) {
+          alert("error");
+        }
+      }
+      btn.addEventListener("click", function () {
+        var search = document.querySelector("#search").value.toLowerCase();
+        const api = `https://pokeapi.co/api/v2/pokemon/${search}`;
+        fetchapi(api);
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      main {
+        display: grid;
+        place-items: center;
+        height: 10vh;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <input type="text" class="input" />
+      <button class="addbtn">Add</button>
+      <div class="div"></div>
+    </main>
+
+    <script>
+      var addbtn = document.querySelector(".addbtn");
+      var input = document.querySelector(".input");
+      var div = document.querySelector(".div");
+
+      function adddiv() {
+        var inpvalue = input.value.trim();
+        if (inpvalue !== "") {
+          var newEle = document.createElement("ul");
+
+          newEle.innerHTML = `${inpvalue} <p>X</p> <b>Edit</b> <i>Add more</i>`;
+          div.appendChild(newEle);
+
+          newEle.querySelector("b").addEventListener("click", function () {
+            var edit = prompt("Edit your taks");
+            newEle.innerHTML = `${edit} Edited <p>X</p> <i>Add more</i>`;
+          });
+
+          newEle.querySelector("i").addEventListener("click", function () {
+            var addnewEle = document.createElement("ul");
+            var adprop = prompt("add more ");
+            addnewEle.innerHTML = `${adprop} Edited`;
+            newEle.appendChild(addnewEle);
+          });
+
+          newEle.querySelector("p").addEventListener("click", function () {
+            newEle.remove();
+          });
+
+          input.value = "";
+        }
+      }
+      addbtn.addEventListener("click", adddiv);
+    </script>
+  </body>
+</html>

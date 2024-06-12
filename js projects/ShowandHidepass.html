@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <input type="password" placeholder="password" class="pass" />
+    <button class="toggle">show</button>
+    password:<span class="details"></span>
+
+    <script>
+      var pass = document.querySelector(".pass");
+      var toggle = document.querySelector(".toggle");
+      var details = document.querySelector(".details");
+
+      function tgle() {
+        if(pass.value !== '')
+        {
+            if (pass.type == "password") {
+              pass.type = "text";
+              toggle.innerHTML = "hide";
+            } else {
+              pass.type = "password";
+              toggle.innerHTML = "Show";
+            }
+            
+            details.appendChild(newele);
+          }
+        }
+
+      toggle.addEventListener("click", tgle);
+    </script>
+  </body>
+</html>

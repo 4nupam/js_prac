@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      main {
+        height: 80vh;
+        width: 100%;
+        background-color: #303030;
+        display: grid;
+        place-items: center;
+      }
+      .slider {
+        overflow: hidden;
+        display: flex;
+        height: 400px;
+        width: 800px;
+        background-color: #fff;
+        border: 2px solid yellow;
+        position: absolute;
+      }
+      .images {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+      }
+      .btn {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+        height: 10vh;
+        background-color: #292292;
+      }
+      .btn button {
+        background-color: transparent;
+        padding: 10px;
+        border-radius: 20px;
+        border: 2px solid #fff;
+        color: #fff;
+        font-weight: 700;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <div class="slider">
+        <img
+          class="images"
+          src="https://images.pexels.com/photos/14246905/pexels-photo-14246905.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+          alt=""
+        />
+        <img
+          class="images"
+          src="https://images.pexels.com/photos/19680195/pexels-photo-19680195/free-photo-of-windows-with-shutters-in-black-and-white.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+          alt=""
+        />
+        <img
+          class="images"
+          src="https://images.pexels.com/photos/17708203/pexels-photo-17708203/free-photo-of-sunlit-red-building-wall.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+          alt=""
+        />
+        <img
+          class="images"
+          src="https://images.pexels.com/photos/9781505/pexels-photo-9781505.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+          alt=""
+        />
+      </div>
+    </main>
+    <div class="btn">
+      <button class="prev">Prev</button>
+      <button class="next">Next</button>
+    </div>
+
+    <script>
+      var prvbtn = document.querySelector(".prev");
+      var nxtbtn = document.querySelector(".next");
+      var slides = document.querySelectorAll(".slider img");
+      var slideLength = slides.length;
+      let slideIndex = 0;
+
+      function showSlide(index) {
+        slides.forEach((slide, i) => {
+          slide.style.transform = `translateX(${100 * (i - index)}%)`;
+        });
+      }
+
+      function nextSlide() {
+        slideIndex = (slideIndex + 1) % slideLength;
+        showSlide(slideIndex);
+      }
+
+      function prvSlide(index) {
+        slideIndex = (slideIndex - 1 + slideLength) % slideLength;
+        showSlide(slideIndex);
+      }
+
+      nxtbtn.addEventListener("click", nextSlide);
+      prvbtn.addEventListener("click", prvSlide);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .popup{
+            width: 400px;
+            display: flex;
+            flex-direction: column;
+            background-color: yellow;
+            padding: 20px;
+            border-radius: 20px;
+            display:none;
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <div class="popup">
+            <button class="Close_btn">Close</button>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque magni placeat reprehenderit molestiae rerum possimus,
+             aperiam praesentium fugiat atque eum repudiandae eos odio impedit corporis nostrum doloremque in iure saepe!
+        </div> 
+        <button class="Open_btn">Popup</button>
+    </main>
+
+<script>
+    var Obtn = document.querySelector('.Open_btn')
+    var Cbtn = document.querySelector('.Close_btn')
+    var popup = document.querySelector('.popup')
+
+
+    Obtn.addEventListener('click',function(){
+      popup.style.display = "block"
+      Obtn.style.display = "none"
+    })
+
+    Cbtn.addEventListener('click',function(){
+        popup.style.display="none"
+        Obtn.style.display = "block"
+    })
+</script>
+</body>
+</html>

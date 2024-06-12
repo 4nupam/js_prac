@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+        <div class="block_1">hello block 1
+
+        </div>
+<div class="block_2">
+    hello block 2
+</div>
+    </div>
+    
+<div class="block">
+    <input type="text" class="input" placeholder="value">
+    <button type="submit" class="submit">Submit</button>
+</div>
+
+
+<script>
+    var inp = document.getElementsByClassName('input')[0];
+var sub = document.getElementsByClassName('submit')[0];
+var block = document.getElementsByClassName('block')[0];
+
+sub.addEventListener('click', all);
+
+function addToLocalStorage() {
+    var inp_value = inp.value.trim();
+    localStorage.setItem('value',inp_value)
+}
+function get(){
+    var get_value = localStorage.getItem('value')
+    var block_new = document.createElement('h2')
+    alert(get_value)
+    block_new.innerHTML = (get_value)
+    block.appendChild(block_new)
+    inp.value = ''
+
+}
+function all(){
+    addToLocalStorage()
+    get()
+}
+
+</script>
+</body>
+</html>

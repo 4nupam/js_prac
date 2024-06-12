@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Calculator</title>
+</head>
+<body>
+  <main>
+    <input type="number" id="input" readonly />
+    <div class="buttons">
+      <button onclick="append('1')">1</button>
+      <button onclick="append('2')">2</button>
+      <button onclick="append('3')">3</button>
+      <button onclick="append('4')">4</button>
+      <button onclick="append('+')">+</button>
+      <button onclick="append('-')">-</button>
+      <button onclick="clearInput()">C</button>
+      <button onclick="calculate()">=</button>
+    </div>
+  </main>
+  <script>
+    var inp = document.getElementById('input');
+
+    function append(input) {
+      inp.value += input;
+    }
+
+    function calculate() {
+      try {
+        inp.value = eval(inp.value);
+      } catch (e) {
+        inp.value = "Error";
+      }
+    }
+
+    function clearInput() {
+      inp.value = "";
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="date" class="ipdate">
+    <button class="submit">Calculate</button>
+    <div class="asd"></div>
+    
+
+    <script>
+        var submit = document.querySelector('.submit')
+var ipdate = document.querySelector('.ipdate')
+var asd = document.querySelector('.asd')
+        function calc(){
+            var todaydate = new Date();
+
+            var inpdate = ipdate.value.trim()
+            const year = todaydate.getFullYear()
+            const month = String(todaydate.getMonth()+1).padStart(2,'0')
+            const day = String(todaydate.getDate()).padStart(2, '0');
+            
+            var aajDate = `${day} ${month} ${year}` 
+            console.log(parseInt(aajDate - inpdate))
+            
+        }
+        submit.addEventListener('click',calc)
+    </script>
+</body>
+</html>
