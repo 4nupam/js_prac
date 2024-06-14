@@ -1,0 +1,32 @@
+*{
+box-sizing: border-box;
+margin: 0;
+padding: 0;
+background-color: #5a5656;
+
+}
+body{
+display: grid;
+place-items: center;
+height: 100vh;
+}
+.nav, .container form{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    color: #fff;
+
+}
+form input{
+    background-color: transparent;
+    outline:none;
+    width: 200px;
+    padding: 10px;
+    border-radius: 10px;
+    font-size: 1rem;
+    border:2px solid #fff;
+}
+form button{
+    cursor: pointer;
+    border:2px solid #fff;
+}
