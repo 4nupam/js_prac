@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .container {
+        height: 30vh;
+        width: 30vh;
+        background-color: rgb(50, 50, 50);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container"></div>
+    <button class="green">Green</button>
+    <button class="blue">Blue</button>
+    <button class="toggle">Toggle</button>
+    <script>
+      var containers = document.querySelector(".container");
+      var green = document.querySelector(".green");
+      var blue = document.querySelector(".blue");
+      var togglebtn = document.querySelector(".toggle");
+
+      function toggling() {
+        if (containers.style.backgroundColor == "rgb(50, 50, 50)") {
+          containers.style.backgroundColor = "#000";
+        } else {
+          containers.style.backgroundColor = "#323232";
+        }
+      }
+
+      togglebtn.addEventListener("click", toggling);
+
+      function setgreen() {
+        containers.style.backgroundColor = "green";
+      }
+      green.addEventListener("click", setgreen);
+      function setblue() {
+        containers.style.backgroundColor = "blue";
+      }
+      blue.addEventListener("click", setblue);
+    </script>
+  </body>
+</html>
