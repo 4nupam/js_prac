@@ -32,9 +32,21 @@ function validation(e) {
     else if (!email_value) {
         semail.style.display = 'block'
     }
-    else {
-// window.location.href = "https://www.google.com/"
-console.log(name_value,pass_value,email_value)
+    else if(name_value && pass_value && email_value){
+        var users = JSON.parse(localStorage.getItem("Users")) || [];
+        var emailExist = users.some(user=> user.email === email_value)
+        if(emailExist){
+            semail.style.display = 'block'
+            semail.innerHTML = "Email Exist"
+        }
+        else{
+            users.push({ name: name_value, email: email_value });
+            localStorage.setItem("Users", JSON.stringify(users));
+            iname.value = "";
+            pass.value = "";
+            email.value = ""; 
+            
+        }
     }
 }
 function toggle(e) {
