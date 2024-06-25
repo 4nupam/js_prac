@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <input type="text" class="input">
+    <button class="submit">Submit</button>
+
+    <script>
+        var abc = document.querySelector('.input')
+        var sub = document.querySelector('.submit')
+
+        function acb(e){
+         e.preventDefault()
+         var val = abc.value;
+         var inp_value = val.split("").reverse().join('');
+      
+        if( inp_value ==  val){
+            alert("palindrome")
+        }
+        else{
+            alert("not")
+        }
+        }
+        sub.addEventListener('click',acb)
+    </script>
+</body>
+</html>
