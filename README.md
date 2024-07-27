@@ -1,1 +1,1 @@
-# js_prac
+# js_practice folder
